@@ -1,5 +1,5 @@
 streamlit
-base64==1.2
+pybase64
 pandas 
 numpy 
 joblib
