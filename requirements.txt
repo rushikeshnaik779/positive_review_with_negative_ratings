@@ -1,0 +1,7 @@
+streamlit==0.86.0 
+python
+base64
+pandas 
+numpy 
+joblib
+sklearn
