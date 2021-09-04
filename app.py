@@ -4,7 +4,6 @@ import base64
 
 from pred_tab import pred_naivebayes
 
-
 def get_table_download(df):
     csv = df.to_csv(index=False)
     b64 = base64.b64encode(csv.encode()).decode()
@@ -26,12 +25,19 @@ if __name__ == "__main__":
 
     
     if st.button("Show Data"):
-        if df is not None:
-            st.dataframe(df[['Text', 'Star']])
-            df, thr = pred_naivebayes(df[['Text', 'Star']])
-            st.write(f"# Results:  with threshold {thr*100}%" )
-            st.dataframe(df)
-            st.markdown(get_table_download(df), unsafe_allow_html=True)
+        try: 
+            if df is not None:
+                st.dataframe(df[['Text', 'Star']])
+                df, thr = pred_naivebayes(df[['Text', 'Star']])
+                st.write(f"# Results:  with threshold {thr*100}%" )
+                st.dataframe(df)
+                st.markdown(get_table_download(df), unsafe_allow_html=True)
+        except: 
+            st.markdown("# sorry! not a correct file")
+            st.markdown("""
+            * correct file will have Text and Star as columns 
+            * correct file will have max 200 MB
+            """)
 
 
 
