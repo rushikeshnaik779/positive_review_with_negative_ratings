@@ -12,6 +12,14 @@ def get_table_download(df):
 
 
 if __name__ == "__main__":
+    st.markdown("# Jr Data Scientist - Evaluation - 1 🎓  ")
+    st.markdown("""
+    * Rushikesh Naik 
+    * Mb : 9545442394
+    * Resume : [Resume](https://resumerushi.herokuapp.com)
+    * Github : [Github](https://github.com/rushikeshnaik779)
+
+    """)
     df = None
     data_file = st.file_uploader("Upload CSV",type=['csv'])
     st.write(data_file)
@@ -31,7 +39,10 @@ if __name__ == "__main__":
                 df, thr = pred_naivebayes(df[['Text', 'Star']])
                 st.write(f"# Results:  with threshold {thr*100}%" )
                 st.dataframe(df)
+                st.markdown('## Download 👇')
                 st.markdown(get_table_download(df), unsafe_allow_html=True)
+            else: 
+                st.markdown("upload File please")
         except: 
             st.markdown("# sorry! not a correct file")
             st.markdown("""
