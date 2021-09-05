@@ -35,8 +35,9 @@ if __name__ == "__main__":
     if st.button("Show Data"):
         try: 
             if df is not None:
-                st.dataframe(df[['Text', 'Star']])
-                df, thr = pred_naivebayes(df[['Text', 'Star']])
+                st.dataframe(df)
+                #st.dataframe(df[['Text', 'Star']])
+                df, thr = pred_naivebayes(df)
                 st.write(f"# Results:  with threshold {thr*100}%" )
                 st.dataframe(df)
                 st.markdown('## Download 👇')
