@@ -5,11 +5,10 @@ import numpy as np
 
 
 def pred_naivebayes(df):
-    print(df.head())
+    print(df.shape)
     pipeline = joblib.load('pipeline.pkl')
-    df.drop('Developer Reply', aixs=1, inplace=True)
     df.dropna(inplace=True)
-    print(df.head())
+    print(df.shape)
     df['pred'] = pipeline.predict(df['Text'])
     df['predprobab'] = pipeline.predict_proba(df['Text'])[:, 1]
     thr = 0.7
