@@ -11,7 +11,7 @@ def pred_naivebayes(df):
     print(df.shape)
     df['pred'] = pipeline.predict(df['Text'])
     df['predprobab'] = pipeline.predict_proba(df['Text'])[:, 1]
-    thr = 0.7
+    thr = 0.8
     df = df[(df['Star']==1) & (df['predprobab']>thr)] # thrshold 0.7 
     print('it worked till here')
     print(df)
